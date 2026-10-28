@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-blue: #1a6cf8;
+    --brand-blue-dark: #1557d4;
+    --brand-blue-light: #e8f0fe;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --bg-hero: #eef2fa;
+    --bg-white: #ffffff;
+    --border-light: #e5e7eb;
+    --border-blue: #bfdbfe;
+    --green: #16a34a;
+    --orange: #f97316;
+    --purple: #7c3aed;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .brand-blue { color: var(--brand-blue); }
+  .bg-brand-blue { background-color: var(--brand-blue); }
+  .bg-hero { background-color: var(--bg-hero); }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--brand-blue);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--brand-blue-dark);
+    box-shadow: 0 4px 16px rgba(26, 108, 248, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: var(--brand-blue);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 11px 24px;
+    border-radius: 50px;
+    border: 1.5px solid var(--brand-blue);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--brand-blue);
+    color: white;
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .badge-blue {
+    background-color: var(--brand-blue-light);
+    color: var(--brand-blue);
+    border: 1px solid #bfdbfe;
+  }
+
+  .badge-green {
+    background-color: #dcfce7;
+    color: var(--green);
+    border: 1px solid #bbf7d0;
+  }
+
+  .badge-orange {
+    background-color: #fff7ed;
+    color: var(--orange);
+    border: 1px solid #fed7aa;
+  }
+
+  .badge-purple {
+    background-color: #f3e8ff;
+    color: var(--purple);
+    border: 1px solid #ddd6fe;
+  }
+
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5d0e8;
+  border-radius: 3px;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Partner logos marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 18s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Fade in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Number badge for steps */
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f4ff;
+  border: 1.5px solid #c7d8ff;
+  color: #4a6cf7;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
