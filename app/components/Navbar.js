@@ -6,8 +6,8 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Colleges', href: '#colleges' },
   { label: 'Employers', href: '#employers' },
-  { label: 'Jobs', href: 'https://campuspe.com/jobs' },
-  { label: 'Blogs', href: 'https://campuspe.com/blogs' },
+  { label: 'Jobs', href: '#jobs' },
+  { label: 'Blogs', href: '#blogs' },
 ];
 
 export default function Navbar() {
@@ -75,6 +75,15 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
+              onClick={(e) => {
+                if (link.href.startsWith('#')) {
+                  e.preventDefault();
+                  const target = document.querySelector(link.href);
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
               style={{
                 padding: '8px 16px',
                 fontSize: '15px',
